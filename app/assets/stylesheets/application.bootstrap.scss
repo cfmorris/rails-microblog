@@ -1,34 +1,65 @@
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
 
 /* universal */
 body {
   padding-top: 0px;
   background-color: gray;
-  }
-  section {
+}
+section {
   overflow: auto;
-  }
-  textarea {
+}
+textarea {
   resize: vertical;
-  }
-  .center {
+}
+.center {
   text-align: center;
-  }
-  .center h1 {
+}
+.center h1 {
   margin-bottom: 10px;
+}
+.jumbotron {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: lightgrey;
+}
+.container{
+  padding-top: 50px;
+  margin-top: 20px;
+  background-color: lightgray;
+  border-radius: 5px;
+}
+.navbar {
+  background-color: black;
+  color: blanchedalmond;
+}
+.footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+  a {
+    color: #555;
+    &:hover {
+      color: #222;
+    }
   }
-  .jumbotron {
-    padding-top: 60px;
-    padding-bottom: 60px;
-    padding-left: 30px; 
-    padding-right: 30px;
-    background-color: lightgrey;
+  small {
+    float: left;
+    small.ctr-blk {
+      float: center;
+    }
   }
-  .navbar {
-    background-color: black;
-    color: blanchedalmond;
+
+  
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
   }
-  .footer-right {
-    align-self: right;  
-  }
+}

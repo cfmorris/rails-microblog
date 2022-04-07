@@ -13,6 +13,7 @@ gem "turbo-rails", "~>1.0.0"
 gem "stimulus-rails"
 gem "cssbundling-rails"
 gem "jbuilder"
+gem "sassc-rails"
 
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
