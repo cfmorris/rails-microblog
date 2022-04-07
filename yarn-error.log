@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js build:css
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add font-awesome-rails
 
 PATH: 
   /usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/cliff/.dotnet/tools
@@ -14,16 +14,25 @@ Platform:
   linux x64
 
 Trace: 
-  SyntaxError: /home/cliff/code_projects/rails/rails-microblog/package.json: Unexpected string in JSON at position 282
-      at JSON.parse (<anonymous>)
-      at /usr/share/yarn/lib/cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (/usr/share/yarn/lib/cli.js:310:30)
-      at /usr/share/yarn/lib/cli.js:321:13
+  Error: https://registry.yarnpkg.com/font-awesome-rails: Not found
+      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66138:18)
+      at Request.self.callback (/usr/share/yarn/lib/cli.js:140883:22)
+      at Request.emit (events.js:314:20)
+      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:141855:10)
+      at Request.emit (events.js:314:20)
+      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:141777:12)
+      at Object.onceWrapper (events.js:420:28)
+      at IncomingMessage.emit (events.js:326:22)
+      at endReadableNT (_stream_readable.js:1241:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
 
 npm manifest: 
   {
     "name": "app",
+    "scripts": { 
+      "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules",
+      "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds"
+    },
     "private": "true",
     "dependencies": {
       "@hotwired/stimulus": "^3.0.1",
@@ -33,10 +42,6 @@ npm manifest:
       "bootstrap-icons": "^1.8.1",
       "esbuild": "^0.14.32",
       "sass": "^1.49.11"
-      "scripts": { 
-        "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
-        "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds"
-      }
     }  
   }
 
