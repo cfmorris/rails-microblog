@@ -2,13 +2,11 @@
   <small>
     <a href="https://github.com/cfmorris/rails-microblog/"> git cfmorris</a>
   </small>
-  <small class="ctr-blk">
-  </small>
   <nav>
     <ul>
-      <li><%= link_to "About", '#' %></li>
-      <li><%= link_to "Contact", '#' %></li>
-      <li><a href="https://news.railstutorial.org/">News</a></li>
+      <li><%= link_to "About", about_path, class: "nav-link" %></li>
+      <li><%= link_to "Contact", contact_path, class: "nav-link" %></li>
+      <li><%= link_to "News", news_path, class: "nav-link" %></li>
     </ul>
   </nav>
 </footer>

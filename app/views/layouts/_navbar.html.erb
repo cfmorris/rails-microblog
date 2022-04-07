@@ -1,14 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">microBlog</a>
+    <%= link_to "microBlog", root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="#">about</a>
-        <a class="nav-link" href="#">help</a>
-        <a class="nav-link" href="#">log in</a>
+        <%= link_to "home", root_path, class: "nav-link" %>
+        <%= link_to "help", help_path, class: "nav-link" %>
+        <%= link_to "log in", '#', class: "nav-link" %>
       </div>
     </div>
   </div>
