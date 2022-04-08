@@ -4,7 +4,7 @@ class UserTest < ActiveSupport::TestCase
   
   def setup
     @user = User.new(name: "Example Unser", email: "3us2er@example.com",
-                     password:"foobar", password_confirmation:"foobar")
+                     password:"foobar123", password_confirmation:"foobar123")
   end
   
   test "should be valid" do
@@ -42,14 +42,24 @@ class UserTest < ActiveSupport::TestCase
   invalid_addresses = %w[user_at_example.com bill@foo,bar user.name@cojp foo@bar_baz.com foo#bar+baz.com]
     invalid_addresses.each do |invalid_address|
       @user.email = invalid_address
-      assert_not @user.valid?, "#{invalid_address} should be invalid"  
+      assert_not @user.valid?, "#{invalid_address.inspect} should be invalid"  
     end
   end
-
+    
   test "email addresses should be unique" do
     duplicate_user = @user.dup
     @user.save
     assert_not duplicate_user.valid?
+  end
+  #these need fixing
+  test "password should be present (nonblank)" do
+    @user.password = @user.password_confirmation = " " * 8
+    assert_not @user.valid?   
+  end
+  
+  test "password should have a minimum length" do
+    @user.password = @user.password_confirmation = "a" * 7
+    assert_not @user.valid?
   end
 
 end
