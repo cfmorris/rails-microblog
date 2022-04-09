@@ -266,6 +266,7 @@ DEPENDENCIES
   byebug
   capybara
   cssbundling-rails
+  digest
   guard
   guard-minitest
   jbuilder

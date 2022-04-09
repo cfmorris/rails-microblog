@@ -7,5 +7,6 @@ class ApplicationHelperTest < ActionView::TestCase
     assert_equal full_title("home"), "home | microBlog"
     assert_equal full_title("about"), "about | microBlog"
     assert_equal full_title("contact"), "contact | microBlog"
+    assert_equal full_title("news"), "news | microBlog"
   end
 end

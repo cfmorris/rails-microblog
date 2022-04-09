@@ -30,6 +30,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "title", "Sign up! | microBlog"
   end
+  
   test "should get news" do
     get news_path
     assert_response :success
