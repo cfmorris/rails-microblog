@@ -16,8 +16,9 @@ class UsersController < ApplicationController
     end
   end
     
-  priv:after =>  column_name
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
+  private
+    
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
 end
