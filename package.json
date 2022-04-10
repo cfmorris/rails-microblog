@@ -1,7 +1,7 @@
 {
   "name": "app",
   "scripts": {
-    "build:css": "sass ./app/assets/stylesheets/application.sass.scss ./app/assets/builds/application.css --no-source-map",
+    "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules",
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds"
   },
   "private": "true",
