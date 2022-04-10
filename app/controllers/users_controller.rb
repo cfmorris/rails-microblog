@@ -5,11 +5,7 @@ class UsersController < ApplicationController
   end
   
   def new
-    if @user.any?
-      @user=@user
-    else 
       @user=User.new
-    end
   end
 
   def create 
