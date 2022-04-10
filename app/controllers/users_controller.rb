@@ -5,7 +5,11 @@ class UsersController < ApplicationController
   end
   
   def new
-    @user=User.new
+    if @user.any?
+      @user=@user
+    else 
+      @user=User.new
+    end
   end
 
   def create 
@@ -14,7 +18,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to microBlog!"
       redirect_to @user
     else
-      render 'new'
+      render "new"
     end
   end
     
