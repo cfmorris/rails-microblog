@@ -2,21 +2,6 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h1 class="ctr">Sign up!</h1>
-    <%= form_with(model: @user, local: true) do |f|%>
-      
-      <%= validated_signup_label(:name, @user, f) %>
-      <%= f.text_field :name %>
-      
-      <%= validated_signup_label(:email, @user, f) %>
-      <%= f.text_field :email %>
-
-      <%= validated_signup_label(:password, @user, f) %>
-      <%= f.text_field :password %>
-
-      <%= validated_signup_label(:password_confirmation, @user, f) %>
-      <%= f.text_field :password_confirmation%>
-
-      <%= f.submit "Create my account", class: "btn btn-primary"%>
-    <% end %>
+    <%= render "users/signup" %>
   </div>
 </div>

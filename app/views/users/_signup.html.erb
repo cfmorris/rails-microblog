@@ -1,0 +1,8 @@
+<%= form_with(model: @user, local: true) do |f|%>
+      
+      <% for i in [:name, :email, :password, :password_confirmation] do%>
+        <%= validated_signup_label(i, @user, f) %>
+        <%= f.text_field i %>
+      <% end %>
+<%= f.submit "Create my account", class: "btn btn-primary"%>
+<% end %>
