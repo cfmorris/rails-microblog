@@ -29,6 +29,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     
     get root_path   #return to root before checking signup_path
     assert_select "a[href=?]", signup_path
+    
     get signup_path
     assert_select "title", full_title("Sign up!")
   end

@@ -16,6 +16,8 @@ gem "jbuilder"
 gem "sassc-rails"
 gem "bcrypt"
 gem "digest"
+gem "bootstrap"
+gem "importmap-rails"
 
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
