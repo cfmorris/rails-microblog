@@ -1,15 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <%= link_to "microBlog", root_path, class: "navbar-brand" %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+  <%= link_to "microBlog", root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <% if logged_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle dropdown-toggle-dark" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Account
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <%= link_to "profile", @current_user, class:"dropdown-item" %>
+            <%= link_to "settings", '#', class:"dropdown-item" %>
+            <li><hr class="dropdown-divider"></li>
+            <%= link_to "log out", logout_path, class:"dropdown-item" %>
+          </ul>
+        </li>
+        <%= link_to "home", root_path, class: "nav-link" %>
+        <%= link_to "users", '#', class: "nav-link" %>
+        <%= link_to "help", help_path, class: "nav-link" %>
+        <% else %>
+        <%= link_to "log in", login_path, class: "nav-link" %>
         <%= link_to "home", root_path, class: "nav-link" %>
         <%= link_to "help", help_path, class: "nav-link" %>
-        <%= link_to "log in", login_path, class: "nav-link" %>
-      </div>
+        <% end %>
     </div>
   </div>
 </nav>

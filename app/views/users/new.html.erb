@@ -1,10 +1,23 @@
 <title><% provide(:title, "Sign up!") %></title>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <div class="signup-form">
 
     <h1 class="text-center">Sign up!</h1>
+    <%= form_with(model: @user, remote: true) do |f|%>
+      <% for item in [:name, :email, :password, :password_confirmation] do%>
+        <% if @user.errors.full_messages_for(item).any? %>
+          <%= f.label item, @user.errors.full_messages_for(item).first, style:"color:red;" %>
+        <% else %>
+          <%= f.label item %>
+          <%= f.text_field item %>
+        <% end %>
+      <% end %>
+      <%= f.submit "Create my account", class: "btn btn-primary"%>
+    <% end%>
+    
 
-    <div class="signup-form"> <%= render "shared/signup" %> </div>
+    </div>
   
   </div>
 </div>

@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= full_title(yield(:title)) %></title>
-    <meta charset="utf-8">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", media: "all",
-                                           'data-turbolinks-track': "reload" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track': "reload" %>
-    <%= render "layouts/shim" %>  
-  </head>
+  <%= render "layouts/head" %>
   <body>
-
     <%= render "layouts/navbar" %>
-    
+
+    <!-- main body begin -->
+    <!-- Alerts -->
+
+    <div class="row">
     <% flash.each do |message_type, message| %>
-      <div class-"alert alert-<% message_type %>"><h1><%= message %><h2></div>
+      <%= content_tag(:div, message, class: "text-center alert alert-#{message_type}") %></div>
     <% end %>
+    </div>
+
+    <!-- main container grid -->
+    <div container-fluid>
+      </div class="row">
+
 
       <%= yield %>
       
-      <div class='container center'><%= link_to image_tag("rails.svg", alt: "rails logo", width: "200"), "https://rubyonrails.org/" %></div>
+      </div>
+      <div class="row">
+        <div class='container center'><%= link_to image_tag("rails.svg", alt: "rails logo", width: "200"), "https://rubyonrails.org/" %></div>
+        
+      </div>
+     <!-- footer begin --> 
+      
       <%= render "layouts/footer" %>
       <div class="@mixin"> <%= debug(params) if Rails.env.development? %> </div>
-      
+    </div>  
   </body>
 </html>
