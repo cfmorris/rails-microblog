@@ -1,4 +1,3 @@
-<div data-turbolinks="false" class="container">
 <%= form_with(model: @user, remote: true) do |f|%> <%# probably should be local:true.  look here first for bugs %>
       
       <% for i in [:name, :email, :password, :password_confirmation] do%>
@@ -7,4 +6,3 @@
       <% end %>
 <%= f.submit "Create my account", class: "btn btn-primary"%>
 <% end %>
-</div>
