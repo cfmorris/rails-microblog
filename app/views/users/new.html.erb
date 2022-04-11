@@ -5,17 +5,25 @@
 
     <h1 class="text-center">Sign up!</h1>
     <%= form_with(model: @user, remote: true) do |f|%>
-      <% for item in [:name, :email, :password, :password_confirmation] do%>
+      <% for item in [:name, :email] do%>
         <% if @user.errors.full_messages_for(item).any? %>
           <%= f.label item, @user.errors.full_messages_for(item).first, style:"color:red;" %>
         <% else %>
           <%= f.label item %>
-          <%= f.text_field item %>
         <% end %>
+        <%= f.text_field item %>
       <% end %>
-      <%= f.submit "Create my account", class: "btn btn-primary"%>
-    <% end%>
+      <% for item in [:password, :password_confirmation] do%>
+        <% if @user.errors.full_messages_for(item).any? %>
+          <%= f.label item, @user.errors.full_messages_for(item).first, style:"color:red;" %>
+        <% else %>
+          <%= f.label item %>
+        <% end %>
+        <%= f.text_field item, type:"password" %>
+      <% end %>
     
+    <%= f.submit "Create my account", class: "btn btn-primary"%>
+    <% end%>
 
     </div>
   
