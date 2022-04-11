@@ -1,0 +1,18 @@
+<% provide(:title, "Log in") %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3" data-turbolinks="false">
+    <h1 class="ctr">Log in:</h1>
+    <%= form_with(url: login_path, scope: :session, local:true) do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :email, class:"form-control"%>
+
+      <%= f.label :password %>
+      <%= f.text_field :password, class:"form-control" %>
+
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+
+    <p> New user? <%= link_to "Sign up now!", signup_path %> </p>
+  </div>
+</div>

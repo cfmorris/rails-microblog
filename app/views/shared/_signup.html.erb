@@ -1,4 +1,4 @@
-<%= form_with(model: @user, local: true) do |f|%>
+<%= form_with(model: @user, remote: true) do |f|%> <%# probably should be local:true.  look here first for bugs %>
       
       <% for i in [:name, :email, :password, :password_confirmation] do%>
         <%= validated_signup_label(i, @user, f) %>

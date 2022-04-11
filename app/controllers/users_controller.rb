@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to microBlog!"
       redirect_to @user
     else
-      render "new"
+      render 'new'
     end
   end
     
