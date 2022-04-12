@@ -13,12 +13,6 @@ class SessionsController < ApplicationController
       render 'new'
     end
   end
-
-  def current_user
-    if session[:user_id]
-    @current_user ||= user.find_by(id: params[:session][:id])
-    end
-  end
   
   def destroy
     log_out
