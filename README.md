@@ -27,10 +27,7 @@ Login is optionally persistent, but needs a little more work on implementation.
 
   - Views for most pages are up.
   - User table exists in the database.
-<<<<<<< HEAD
-=======
   - User signup is implemented. (needs front end validation feedback or .js to display it from the server.)
->>>>>>> advance-signup
   - Session and Cookie based log in persistence is in.
   - Front end looks pretty good.
   - Lots of "happy path" test coverage, needs more "sad path" tests.
