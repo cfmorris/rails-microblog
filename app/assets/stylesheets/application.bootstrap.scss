@@ -28,14 +28,25 @@ border-box;
 
 /* forms */
 input, textarea, select, .uneditable-input {
-  border: 1px solid rgb(30,30,30);
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
+  margin-top: 8px;
   @include box_sizing;
+}
+input {
+height: auto !important;
+}
+.check {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-weight: normal;
   }
-  input {
-  height: auto !important;
-  }
+
+#session_remember_me{
+  width: 50px;
+  margin-left: 0;
+}
+
 .col-md-6 {
   margin-top: 40px;
   margin-left:auto;
