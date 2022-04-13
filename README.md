@@ -8,7 +8,7 @@ Hartl emphasizes the importance of hosting the app throughout the development pr
 https://frozen-beach-47064.herokuapp.com/
 ## Project Summary
 
-This project is based on Michael Hartl's [The Ruby on Rails Tutorial, 6th ed.](ttps://www.railstutorial.org/) but there are some notable differences.  He uses Rails 6 which utilizes Webpacker and JQuery for the front end and a SQLite3 development database.  I'm using Rails 7 with bootstrap on the front end and turbolinks with a local PostSQL database.  Most of the principles are the same, but there are occasionally some differences in execution.
+This project is based on Michael Hartl's [The Ruby on Rails Tutorial, 6th ed.](ttps://www.railstutorial.org/) but there are some notable differences.  He uses Rails 6 which with Bootstrap + Webpacker + JQuery for the front end and a SQLite3 development database.  I'm using Rails 7 with bootstrap 5 on the front end and turbo-rails with a local PostSQL database.  Most of the principles are the same, but there are occasionally some differences in execution.
 
 Version Info - [see more](./Gemfiles)
 - Ruby 3.0.1
@@ -33,9 +33,11 @@ Login is optionally persistent, but needs a little more work on implementation.
 
 ## Things to do after completion
 
+- Remodel the front end in pure, clean bootstrap.
+
 - Currently a user checks "Remember me" on login and it persists until they manually log out.  I'm going to add a toggle to allow them to opt in or out at in at any time from any page.
 
-- Would be interesting to implement RSA keys as a security method.
+- Would be interesting to implement RSA keys and/or multifactor authentication as an exercise.
 
 - Currently persistence reliase upon a random base64 string with a hashed user id.  This information is only passed via TLS connections, so the relative simplicity of the hashed numerical id isnt a huge issue, but it is tempting to use another identifier.
 
