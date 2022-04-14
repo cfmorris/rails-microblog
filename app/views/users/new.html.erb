@@ -4,7 +4,8 @@
 
     <h1 class="text-center">Sign up!</h1>
     
-    <%= render 'user_form' %>
+    <%= render 'user_form', locals: {field: @fields=[:name, :email, :password, :password_confirmation],
+                                            @user  = @user } %>
     
       
     </div>

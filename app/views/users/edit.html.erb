@@ -9,8 +9,7 @@
         id="edit_user_1" method="post">
       <input name="_method" type="hidden" value="patch" />
 
-    <%= render 'user_form' %>
-
+    <%= render partial:'user_form', locals: {field: @fields=[:name, :email, :current_password, :new_password, :new_password_confirmation]} %>
     </div>
 
     <div class="gravatar_edit">

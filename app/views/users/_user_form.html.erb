@@ -2,8 +2,9 @@
 <div class="">
 <%= form_with(model:@user, local:true) do |f| %>
   <div class="form-group">
-    <% for item in [:name, :email, :password, :password_confirmation] do %>
+  <% for item in @fields do %>
       <%= (f.label item) %>
+      <%# byebug %>
       <%= item.to_s.include?("password")? (f.text_field item, type:"password", class:"form-control") : (f.text_field item, class:"form-control") %>
     <% end %>
     <%= f.submit "Submit", class: "btn btn-primary center"%>
