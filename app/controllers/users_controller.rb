@@ -20,12 +20,22 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
+  end
+  
+  def update
+    @user = current_user
+    helpers.edit_profile(@user)
+    redirect_to edit_user_path(@user)
   end
     
   private
     
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+    
+    def update_user_params
+      edit_params.require(:user).permit(:new_name, :new_email, :current_password, :new_password, :confirm_new_password)
     end
 end
