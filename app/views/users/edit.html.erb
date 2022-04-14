@@ -9,13 +9,15 @@
         id="edit_user_1" method="post">
       <input name="_method" type="hidden" value="patch" />
 
+      <div class="gravatar_edit row">
+        <%= gravatar_for @user %>
+      </div>
+      <a href="https://gravatar.com/emails" target="_blank" class="">
+      change</a>
     <%= render partial:'user_form', locals: {field: @fields=[:name, :email, :current_password, :new_password, :new_password_confirmation]} %>
+    </form>
     </div>
 
-    <div class="gravatar_edit">
-<%= gravatar_for @user %>
-<a href="https://gravatar.com/emails" target="_blank">change</a>
-</div>
 
 </div>
 </form>
