@@ -14,7 +14,11 @@
       </div>
       <a href="https://gravatar.com/emails" target="_blank" class="">
       change</a>
-    <%= render partial:'user_form', locals: {field: @fields=[:name, :email, :current_password, :new_password, :new_password_confirmation]} %>
+    
+    <%= render 'user_form', locals: {fields: @fields=[[:name, "Name"], 
+                                                      [:email, "Email Adress"], 
+                                                      [:password, "Enter password"], 
+                                                      [:password_confirmation, "Confirm password"]]} %>
     </form>
     </div>
 
