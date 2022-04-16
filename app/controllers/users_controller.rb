@@ -25,9 +25,15 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = current_user
-    helpers.edit_profile(@user)
-    redirect_to edit_user_path(@user)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Profile Updated"
+      redirect_to @user
+    else
+      @error_messages = @user.errors.full_messages
+      @user = User.find(params[:id])
+      render 'edit', status: :unprocessable_entity, object: @error_messages
+    end
   end
     
   private
