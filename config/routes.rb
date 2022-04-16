@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get '/news', to: 'static_pages#news'
   
   get '/signup', to: 'users#new'
-  get '/update', to: 'users#update'
   resources :users
   
   get '/login', to: 'sessions#new'
