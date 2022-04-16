@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <%= link_to "microBlog", root_path, class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -12,9 +12,9 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
             <%= link_to "profile", @current_user, class:"dropdown-item" %>
-            <%= link_to "settings", '#', class:"dropdown-item" %>
+            <%= link_to "settings", edit_user_path(current_user), class:"dropdown-item" %>
             <li><hr class="dropdown-divider"></li>
-            <%= link_to "log out", logout_path, class:"dropdown-item" %>
+            <%= button_to "log out", logout_path, method: "delete", class:"dropdown-item" %>
           </ul>
         </li>
         <%= link_to "home", root_path, class: "nav-link" %>
