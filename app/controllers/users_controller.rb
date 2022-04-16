@@ -15,7 +15,8 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to microBlog!"
       redirect_to @user
     else
-      render 'new'
+      @error_messages = @user.errors.full_messages
+      render 'new', status: :unprocessable_entity, object: @error_messages
     end
   end
 
