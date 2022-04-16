@@ -19,23 +19,23 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   end
 
   test "log in with valid information followed by logout" do
+    #Initial login
     get login_path
     log_in_as(@user)                                     
     assert is_logged_in?
     assert_redirected_to @user
     follow_redirect!
-    assert_template 'users/show'
-    assert_select "a[href=?]", login_path, count: 0
-    assert_select "a[href=?]", logout_path
-    assert_select "a[href=?]", user_path(@user)
-    get logout_path
+
+    correct_navbar?
+    delete logout_path
     assert_redirected_to root_url
+    
     assert_not is_logged_in?
-    get logout_path
+    delete logout_path
     follow_redirect!
-    assert_select "a[href=?]", logout_path, count: 0
-    assert_select "a[href=?]", user_path(@user), count: 0
-    assert_select "a[href=?]", login_path
+    
+    correct_navbar?
+    assert_select "a[href=?]", signup_path, count:1
     end
 
 
@@ -51,13 +51,27 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with remembering" do
     log_in_as(@user, remember_me:"1")
-    # fix this test - assert_equal @user.cookies.[:remember_token], assigns(:user)[:remember_token]
-    
+    assert_equal cookies[:remember_token], assigns(:user).remember_token
   end
 
   test "login without remembering" do
     log_in_as(@user, remember_me:"1")
     log_in_as(@user, remember_me:"0")
     assert_empty cookies[:remember_token]
+        assert_nil assigns(:user).remember_token
   end
-end
+
+  test "login and edit profile" do
+    log_in_as(@user)
+    get edit_user_path(@user)
+    assert_template "users/edit"
+    assert_select "form[action=?]", edit_user_path(@user), count: 1
+      assert_select "input[type=?]", "text", count: 2
+      assert_select "input[type=?]", "password", count: 2
+      assert_select "input[type=?]", "submit", count: 1
+      #patch update_path(@user), params: { session: { name: "", 
+      #                                                 email:"", 
+      #                                                 password:"",
+      #                                                password_confirmation:"" } }
+    end
+  end
