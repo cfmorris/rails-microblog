@@ -12,7 +12,7 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
             <%= link_to "profile", @current_user, class:"dropdown-item" %>
-            <%= button_to "settings", edit_user_path(@current_user), method: "get", class:"dropdown-item align-left" %>
+            <%= link_to "settings", edit_user_path(current_user), class:"dropdown-item" %>
             <li><hr class="dropdown-divider"></li>
             <%= button_to "log out", logout_path, method: "delete", class:"dropdown-item" %>
           </ul>

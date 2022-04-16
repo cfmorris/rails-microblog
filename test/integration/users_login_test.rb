@@ -58,20 +58,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     log_in_as(@user, remember_me:"1")
     log_in_as(@user, remember_me:"0")
     assert_empty cookies[:remember_token]
-        assert_nil assigns(:user).remember_token
+    assert_nil assigns(:user).remember_token
   end
-
-  test "login and edit profile" do
-    log_in_as(@user)
-    get edit_user_path(@user)
-    assert_template "users/edit"
-    assert_select "form[action=?]", edit_user_path(@user), count: 1
-      assert_select "input[type=?]", "text", count: 2
-      assert_select "input[type=?]", "password", count: 2
-      assert_select "input[type=?]", "submit", count: 1
-      #patch update_path(@user), params: { session: { name: "", 
-      #                                                 email:"", 
-      #                                                 password:"",
-      #                                                password_confirmation:"" } }
-    end
-  end
+  
+end
