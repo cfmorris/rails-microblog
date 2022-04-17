@@ -42,6 +42,16 @@ module SessionsHelper
     forget(current_user) 
     session.delete(:user_id)
   end
+
+  # Redirects to a stored location (after authorization)
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # Stores an unauthorized URL for forwarding after successful login 
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end
 
