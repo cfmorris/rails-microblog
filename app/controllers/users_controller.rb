@@ -22,12 +22,12 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       @error_messages = @user.errors.full_messages
-      render 'new', status: :unprocessable_entity, object: @error_messages
+      render 'new', status: :unprocessable_entity
     end
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
   end
   
   def update
@@ -37,18 +37,19 @@ class UsersController < ApplicationController
       redirect_to user_path
     else
       @error_messages = @user.errors.full_messages
-      @user = User.find(params[:id])
-      render 'edit', status: :unprocessable_entity, object: @error_messages
+      @user = User.find(session[:user_id])
+      render 'edit', status: :unprocessable_entity
     end
   end
-    
+  
+  
   private
-    
+  
   # Defines parameters for user signup and update forms
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
-    
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+  
   # Checks if the a current_user is logged in.
   def logged_in_user
     unless logged_in?
@@ -62,5 +63,5 @@ class UsersController < ApplicationController
   def correct_user
     user = User.find(params[:id])
     redirect_to root_path if user != current_user  
-    end
+  end  
 end

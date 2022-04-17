@@ -4,10 +4,7 @@
 
     <h1 class="text-center">Sign up!</h1>
     
-    <%= render 'user_form', locals: {fields: @fields=[[:name, "Name"], 
-                                                      [:email, "Email Adress"], 
-                                                      [:password, "Enter password"], 
-                                                      [:password_confirmation, "Confirm password"]]} %>
+    <%= render 'shared/user_form' %>
       
     </div>
 </div>
