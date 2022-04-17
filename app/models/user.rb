@@ -28,10 +28,13 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
+  # checks if a user's cookie matches the hash stored in the database.
   def authenticated?(remember_token)
     return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
+  
+  # Deletes a hash stores in the database.
   def forget
       self.update_attribute(:remember_digest, nil)
   end

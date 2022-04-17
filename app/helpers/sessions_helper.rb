@@ -25,16 +25,19 @@ module SessionsHelper
     end
   end
 
+  # Checks if the current @user is logged in (checks both persistent cookies and sessions).
   def logged_in?
-    !@current_user.nil?
+    !current_user.nil?
   end
 
+  # Deletes a user's locally stored authorization cookies.
   def forget(user)
     cookies.delete :user_id
     cookies.delete :remember_token
     user.forget if !current_user.nil?
   end
   
+  # Terminates session based authentication.
   def log_out
     forget(current_user) 
     session.delete(:user_id)
