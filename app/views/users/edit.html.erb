@@ -12,10 +12,7 @@
     
 
 
-    <%= render 'user_form', locals: {fields: @fields=[[:name, "Name"], 
-                                                      [:email, "Email Adress"], 
-                                                      [:password, "Enter password"], 
-                                                      [:password_confirmation, "Confirm password"]], user: @user} %>
+    <%= render 'shared/user_form' %>
     </form>
     </div>
 

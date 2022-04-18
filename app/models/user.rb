@@ -7,7 +7,7 @@ class User < ApplicationRecord
                                     format: { with: VALID_EMAIL_REGEX },
                                     uniqueness: true
   has_secure_password
-  validates :password, presence: true, length: { minimum: 8 }
+  validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
   
   
   # Generate the hash digest of a given string.
@@ -28,28 +28,15 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
+  # checks if a user's cookie matches the hash stored in the database.
   def authenticated?(remember_token)
     return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
+  
+  # Deletes a hash stores in the database.
   def forget
       self.update_attribute(:remember_digest, nil)
   end
   
-  def edit_profile(user)
-    if user&.authenticate(params[:session][:password])
-      if user.name != params[:new_name]
-        user.update(name:params[:new_name]) ? flash[:success]="name updated" : flash[:danger]="name unsaved"
-      end
-      if params[:new_password] == params[:confirm_new_password] && !params[:new_password].nil?
-        user.update(password:params[:new_password]) ? flash[:success]="password updated" : flash[:danger]="New password unsaved"
-      end
-      if user.email != params[:new_email]
-        user.update(email:params[:new_email]) ? flash[:success]="email updated" : flash[:danger]="email unchanged"
-      end
-      flash[:warning]="Profile remains unchanged." if @user == User.find(params[:id])
-    else
-      flash[:danger]="Password invalid.  No changes saved."
-    end
-  end
 end

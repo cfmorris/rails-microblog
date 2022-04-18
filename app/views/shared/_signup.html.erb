@@ -1,8 +1,0 @@
-<%= form_with(model: @user, remote: true) do |f|%> <%# probably should be local:true.  look here first for bugs %>
-      
-      <% for i in [:name, :email, :password, :password_confirmation] do%>
-        <%= validated_signup_label(i, @user, f) %>
-        <%= f.text_field i %>
-      <% end %>
-<%= f.submit "Create my account", class: "btn btn-primary"%>
-<% end %>

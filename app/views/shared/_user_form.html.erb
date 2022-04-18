@@ -1,0 +1,24 @@
+<div class="row">
+  <%= render "shared/error_messages"%>
+</div>
+<div class="">
+  <%= form_with(model:@user, local:true) do |f| %>
+    <div class="form-group">
+      
+      <%= f.label "Name" %>
+      <%= f.text_field :name, class:"form-control" %>
+      
+      <%= f.label "Email" %>
+      <%= f.text_field :email, class:"form-control" %>
+      
+      <%= f.label "Password" %>
+      <%= f.text_field :password, autocomplete:"off", type:"password", class:"form-control" %>
+      
+      <%= f.label "Password Confirmation" %>
+      <%= f.text_field :password_confirmation, autocomplete:"off", type:"password", class:"form-control" %>
+      
+      <%= @user.id.nil? ? (f.submit "Sign up", class: "btn btn-primary center") :
+                          (f.submit "Update", class: "btn btn-primary center")%>
+    </div>
+  <% end %>
+</div>
