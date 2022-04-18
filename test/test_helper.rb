@@ -53,7 +53,7 @@ class ActionDispatch::IntegrationTest
       # True: Home x2, Help, Login
       # False: Logout, Settings, Profile
       assert_select "a[href=?]", login_path, count: 1 
-      #assert_select "a[href=?]", edit_user_path(@user), count:0
+      assert_select "a[href=?]", edit_user_path(@user), count:0
       assert_select "form[action=?]", logout_path, count:0
    end
   end
