@@ -38,23 +38,22 @@ class ActionDispatch::IntegrationTest
   #end
 
   def correct_navbar?
+    
+    assert_select "a[href=?]", root_path
+    assert_select "a[href=?]", help_path, count:1
+    assert_select "a[href=?]", users_path, count:1
+    
     if is_logged_in?
       # True: Home x 2, Users, Help, Profile, Settings, Log out
       # False: Login
-      assert_select "a[href=?]", root_path, count: 2
-      assert_select "a[href=?]", help_path, count:1
       assert_select "a[href=?]", edit_user_path(@user), count:1
-      # not routed yet | assert_select "a[href=?]", users_path, count:1
       assert_select "form[action=?]", logout_path, count:1 
       assert_select "a[href=?]", login_path, count: 0     
    else
       # True: Home x2, Help, Login
       # False: Logout, Settings, Profile
-      assert_select "a[href=?]", root_path, count: 2
-      assert_select "a[href=?]", help_path, count: 1
       assert_select "a[href=?]", login_path, count: 1 
-      assert_select "a[href=?]", edit_user_path(@user), count:0
-      #Not routed yet | assert_select "a[href=?]", users_path, count:0
+      #assert_select "a[href=?]", edit_user_path(@user), count:0
       assert_select "form[action=?]", logout_path, count:0
    end
   end
