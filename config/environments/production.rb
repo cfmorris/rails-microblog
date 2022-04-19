@@ -77,7 +77,6 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name      => ENV['GMAIL_USERNAME'],
     :password       => ENV['GMAIL_PASSWORD'],
-    :domain         => 'gmail.com',
     :enable_starttles_auto => true
   }
 
