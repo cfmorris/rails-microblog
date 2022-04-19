@@ -1,0 +1,15 @@
+
+<div class="col border p-3">
+  <div class="row list-inline">
+    <div class="col align-middle">
+      <%= gravatar_for user, size: 50 %>
+      <p><%= link_to user.name, user, class:"list-inline-item" %></p>
+    </div>
+    <div class="col float-right align-middle"> 
+      <% if (current_user.admin?) && (current_user != user)%>
+      <p class="text-end"><%= button_to 'delete', user, class:"btn btn-outline-danger", method: "delete", data: { confirm: "are you sure?" } %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
