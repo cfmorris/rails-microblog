@@ -70,7 +70,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   host = 'frozen-beach-47064.herokuapp.com'
-  config.actionmailer.default_url_options = { host: host }
+  config.ActionMailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
     :addresses      => 'smtp.sendgrig.net',
     :port           => '587',
