@@ -18,6 +18,9 @@ gem "bcrypt"
 gem "digest"
 gem "bootstrap"
 gem "importmap-rails"
+gem "faker"
+gem "will_paginate"
+gem "bootstrap-will_paginate"
 
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
@@ -31,6 +34,7 @@ group :development do
   gem "listen"
   gem "spring"
   gem "spring-watcher-listen"
+
 end
 
 group :test do
