@@ -72,11 +72,11 @@ Rails.application.configure do
   host = 'frozen-beach-47064.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
-    :addresses      => 'smtp.gmail.net',
+    :addresses      => 'smtp.sendgrid.net',
     :port           => '587',
     :authentication => :plain,
-    :user_name      => ENV['GMAIL_USERNAME'],
-    :password       => ENV['GMAIL_PASSWORD'],
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
     :enable_starttles_auto => true
   }
 
