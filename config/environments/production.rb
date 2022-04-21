@@ -77,7 +77,8 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name      => ENV['SENDGRID_USERNAME'],
     :password       => ENV['SENDGRID_PASSWORD'],
-    :enable_starttles_auto => true
+    :domain:        => 'cfmorris.dev'
+    :enable_starttls_auto => true
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
