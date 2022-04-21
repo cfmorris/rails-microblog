@@ -51,7 +51,7 @@ class User < ApplicationRecord
   end
 
   def send_activation_email
-    UserMailer.account_activation(self).deliver_now
+    UserMailer.account_activation(user).deliver_now
   end
 
   private
