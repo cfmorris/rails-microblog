@@ -77,7 +77,7 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name      => ENV['SENDGRID_USERNAME'],
     :password       => ENV['SENDGRID_PASSWORD'],
-    :domain        => 'cfmorris.dev'
+    :domain        => 'cfmorris.dev',
     :enable_starttls_auto => true
   }
 
