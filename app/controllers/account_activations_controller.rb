@@ -1,5 +1,6 @@
 class AccountActivationsController < ApplicationController
   def edit
+    smtp_settings() if Rails.env.production?
     user = User.find_by(email: params[:email])
     if user && !user.activated? && user.authenticated?(:activation, params[:id])
       user.activate
