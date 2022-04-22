@@ -78,7 +78,7 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name      => 'apikey',
     :password       => ENV['SENDGRID_API_KEY'],
-    :domain        => 'cfmorris.dev',
+    :domain        => 'heroku.com',
     :enable_starttls_auto => true
   }
 
