@@ -1,6 +1,6 @@
 module AccountActivationsHelper
   def smtp_settings
-    ActionMailer.Base.smtp_settings = {
+    config.action_mailer.smtp_settings = {
           :addresses      => 'smtp.sendgrid.net',
           :port           => '587',
           :authentication => :plain,
