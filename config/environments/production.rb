@@ -72,15 +72,17 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   host = 'https://git.heroku.com/frozen-beach-47064.git'
   config.action_mailer.default_url_options = { host: host }
-  ActionMailer::Base.smtp_settings = {
-    :addresses      => 'smtp.sendgrid.net',
-    :port           => 25,
-    :authentication => :plain,
-    :user_name      => 'apikey',
-    :password       => ENV['SENDGRID_API_KEY'],
-    :domain        => 'heroku.com',
-    :enable_starttls_auto => true
-  }
+  ActiveSupport.on_load(:action_mailer) do
+    self.smtp_settings = {
+      :addresses      => 'smtp.sendgrid.net',
+      :port           => 587,
+      :authentication => :plain,
+      :user_name      => 'apikey',
+      :password       => ENV['SENDGRID_API_KEY'],
+      :domain        => 'heroku.com',
+      :enable_starttls_auto => true
+    }
+  end
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
