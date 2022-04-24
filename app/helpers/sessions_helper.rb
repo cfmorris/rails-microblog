@@ -33,7 +33,7 @@ module SessionsHelper
   def forget(user)
     cookies.delete :user_id
     cookies.delete :remember_token
-    user.forget if !current_user.nil?
+    user.forget(:remember) if !current_user.nil?
   end
   
   # Terminates session based authentication.
