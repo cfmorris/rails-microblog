@@ -9,6 +9,7 @@ gem "sprockets-rails"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "active_storage_validations"
+gem "google-cloud-storage", "~>1.11", require: false
 
 gem "turbo-rails", "~>1.0.0"
 gem "stimulus-rails"
