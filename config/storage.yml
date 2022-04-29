@@ -19,7 +19,7 @@ google:
   service: GCS
   project: microblog
   credentials: <%= ENV["GOOGLE_APPLICATION_CREDENTIALS"] %>
-  bucket: microblog-bucket-<%= Rails.env %>
+  bucket: microblog-bucket
 
 # Use bin/rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
 # microsoft:
