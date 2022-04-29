@@ -1,0 +1,46 @@
+orange:
+  content: "my tesla stock just hit the floor"
+  created_at: <%= 10.minutes.ago %>
+  user: testuser
+
+beef:
+  content: "Beef sucks, pork is better."
+  created_at: <%= 3.years.ago %>
+  user: testuser
+
+pork:
+  content: "Mandarin ducks aren't orange"
+  created_at: <%= 2.hours.ago %>
+  user: testuser
+
+most_recent:
+  content: "Writing a short test"
+  created_at: <%= Time.zone.now %>
+  user: testuser
+
+aflack:
+  content: "aflack!"
+  created_at: <%= 2.years.ago %>
+  user: duckuser
+
+geese:
+  content: "HONK! HONK! HONK!"
+  created_at: <%= 3.days.ago %>
+  user: duckuser
+
+mallard:
+  content: "I want my baby back!"
+  created_at: <%=  10.minutes.ago %>
+  user: duckuser
+
+corkscrew:
+  content: "You'll never believe the shape of it!"
+  created_at: <%=  4.hours.ago %>
+  user: duckuser
+
+<% 30.times do |n| %>
+micropost_<%= n %>:
+  content: <%= Faker::Lorem.sentence(word_count: 5) %>
+  created_at: <%= 42.days.ago %>
+  user: testuser
+<% end %>

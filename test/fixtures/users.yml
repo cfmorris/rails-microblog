@@ -13,6 +13,13 @@ duckuser:
   activated: true
   activated_at: Time.zone.now
 
+gooseuser:
+  name: Gerald Goose
+  email: gerald@goose.com
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: Time.zone.now
+
 <% 40.times do |n| %>
 user_<%= "#{n}" %>:
   name: <%= "User_#{n}" %>

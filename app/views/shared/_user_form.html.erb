@@ -1,8 +1,8 @@
 <div class="row">
-  <%= render "shared/error_messages"%>
+  <%= form_with(model:@user, local:true) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
 </div>
 <div class="">
-  <%= form_with(model:@user, local:true) do |f| %>
     <div class="form-group">
       
       <%= f.label "Name" %>

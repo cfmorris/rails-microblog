@@ -2,7 +2,8 @@
 <% provide(:title, @user.name) %>
 
 <div class="row">
-  <aside class=col-md-4>
+  
+  <aside class="col-md-2">
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
@@ -10,6 +11,17 @@
       </h1>
     </section>
   </aside>
+  <div class="col-md-10">
+    <%if @user.microposts.any? %>
+      <ol class="list-group-mine microposts">
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+        <%= render @microposts %>
+      </ol>
+      <% end %>
+  </div>
+  <div class="row">
+      <%= will_paginate @microposts, class:"pagination d-flex justify-content-center" %>
+  </div>
 </div>
 
 

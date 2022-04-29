@@ -3,20 +3,26 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.3"
 gem "rails", "~> 7.0.2", ">= 7.0.2.3"
+gem "image_processing"
 gem "sprockets-rails"
 
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
+gem "active_storage_validations"
 
-gem "jsbundling-rails"
 gem "turbo-rails", "~>1.0.0"
 gem "stimulus-rails"
-gem "cssbundling-rails"
+gem "jsbundling-rails"
 gem "jbuilder"
+
+gem "bootstrap"
+gem "cssbundling-rails"
 gem "sassc-rails"
+gem "mini_magick"
+
 gem "bcrypt"
 gem "digest"
-gem "bootstrap"
+
 gem "importmap-rails"
 gem "faker"
 gem "will_paginate"

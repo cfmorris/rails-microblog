@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
     redirect_to root_url and return unless @user.activated?
   end
   
@@ -23,7 +24,6 @@ class UsersController < ApplicationController
       flash[:info] = "Please check your email to activate account."
       redirect_to root_url
     else
-      @error_messages = @user.errors.full_messages
       render 'new', status: :unprocessable_entity
     end
   end
@@ -38,8 +38,7 @@ class UsersController < ApplicationController
       flash[:success] = "Profile Updated"
       redirect_to user_path
     else
-      @error_messages = @user.errors.full_messages
-      @user = User.find(session[:user_id])
+      @user.reload
       render 'edit', status: :unprocessable_entity
     end
   end
@@ -56,22 +55,16 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
-  
-  # Checks if the a current_user is logged in.
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger]="Please log in."
-      redirect_to login_url
-    end
-  end
 
+  # Before filters.
+  
   # Checks if the current_user is a specific user 
   def correct_user
     user = User.find(params[:id])
     redirect_to root_path if user != current_user  
   end
 
+  # Checks if the current user is an admin.
   def admin_user
     redirect_to(root_url) unless current_user.admin?
   end

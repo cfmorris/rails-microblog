@@ -3,6 +3,15 @@
 @import "custom.scss";
 @import "_gravatar.scss";
 
+.list-group-mine .list-group-item {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: lightgrey;
+  border-top: 1px solid #092025;
+  border-left-color: lightgrey;
+  border-right-color: lightgrey;
+}
+
 /*mixins, variables, etc */
 
 $gray-medium-light: #eaeaea;

@@ -1,0 +1,21 @@
+<% if @feed_items.any? %>
+<div class="row">
+  <div class="col-md-12 p-4"> <h1 class="text-center"> Feed </h1> </div>
+</div>
+<div class="row">
+  
+<%= will_paginate @feed_items, 
+                  class:"pagination d-flex justify-content-center",
+                  params: { controller: :static_pages, action: :home } %>
+  
+</div>
+  <ol class="list-group-mine microposts p-0">
+    <%= render @feed_items %>
+  </ol>
+<%= will_paginate @feed_items, 
+                  class:"pagination d-flex justify-content-center",
+                  params: { controller: :static_pages, action: :home } %>
+<div class=row>
+  <% end %>
+
+</div>

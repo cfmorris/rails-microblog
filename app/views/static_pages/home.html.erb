@@ -1,10 +1,20 @@
 <title><% provide(:title, "") %></title>
-<div class="center jumbotron">
-<h1>Welcome to microBlog!</h1>
 
-<h2>
-    This is the homepage for the rails tutorial sample microblog app.  There is some extra text to observed how line wrapping works.  Ok! everything looks good?
+<% if logged_in? %>
+<div class="container-fluid">
+  <div class="row">
+   <div class="col-md-3">
+    <%= render 'static_pages/post' %>
+  </div>
+  <div class="col-md-9">
+    <%= render 'shared/feed' %>
+  </div>
+<% else %>
 
-</h2>
-<%= link_to "Sign Up!", signup_path, class: "btn btn-lg btn-primary" %>
-</div>
+  <div class="center jumbotron">
+    <h1>Welcome to microBlog!</h1>
+    <h2> microBlog is product of a new rails programmer doing the <a href="https://www.railstutorial.org">Ruby on Tails Tutorial</a></h2>
+    <%= link_to "Sign Up!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+
+<% end %>
