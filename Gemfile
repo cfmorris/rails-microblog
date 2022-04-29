@@ -20,7 +20,6 @@ gem "cssbundling-rails"
 gem "sassc-rails"
 gem "image_processing"
 gem "mini_magick"
-gem "ruby-vips"
 
 gem "bcrypt"
 gem "digest"
