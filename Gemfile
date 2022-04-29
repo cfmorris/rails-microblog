@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.3"
 gem "rails", "~> 7.0.2", ">= 7.0.2.3"
-gem "image_processing"
 gem "sprockets-rails"
 
 gem "pg", "~> 1.1"
@@ -19,7 +18,9 @@ gem "jbuilder"
 gem "bootstrap"
 gem "cssbundling-rails"
 gem "sassc-rails"
+gem "image_processing"
 gem "mini_magick"
+gem "ruby-vips"
 
 gem "bcrypt"
 gem "digest"
