@@ -1,15 +1,25 @@
 
 <div class="col border p-3">
-  <div class="row list-inline">
-    <div class="col align-middle">
+  <div class="d-flex align-items-center">
+    
+    <div class="p-1">
       <%= gravatar_for user, size: 50 %>
-      <p><%= link_to user.name, user, class:"list-inline-item" %></p>
     </div>
-    <div class="col float-right align-middle"> 
+    
+    <div class="p-1 me-auto">
+      <p><%= link_to user.name, user, class:"list-inline-item" %></p>  
+    </div>
+
+    <div class="p-1">
+      <% @user=user %>
+      <%= render 'follow_form' if logged_in? %>
+    </div>
+    <div class="p-1"> 
       <% if (current_user.admin?) && (current_user != user)%>
-      <p class="text-end"><%= button_to 'delete', user, class:"btn btn-outline-danger", method: "delete", data: { confirm: "are you sure?" } %></p>
+      <%= button_to 'delete', user, class:"btn btn-outline-danger", form: { data: { turbo_confirm: "Are you sure?" } }, method: "delete" %>
       <% end %>
     </div>
+  
   </div>
 </div>
 
